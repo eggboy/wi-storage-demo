@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: workloadidentity-blob
+  labels:
+    app: workloadidentity-blob
+spec:
+  serviceAccountName: jay-mi-serviceaccount
+  containers:
+    - name: workloadidentity-blob
+      image: eggboy/mi-storage:0.0.1
+      imagePullPolicy: Always
+      env:
+        - name: BLOB_ACCOUNT_NAME
+          value: ""
+        - name: BLOB_CONTAINER_NAME
+          value: ""
+  restartPolicy: Always
